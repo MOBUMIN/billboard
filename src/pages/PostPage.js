@@ -1,10 +1,12 @@
 import React from 'react'
+import { Grid, Container, Typography } from '@material-ui/core';
+import Layout from '../Component/Layout'
 
 function PostPage() {
 	return (
-		<div>
-			PostPages
-		</div>
+		<Layout>
+			postpage
+		</Layout>
 	)
 }
 
