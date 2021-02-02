@@ -1,42 +1,43 @@
-import React from 'react'
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@material-ui/core';
+import React, { useState, useEffect } from 'react'
+import { List, ListItem, ListItemText, Divider } from '@material-ui/core';
 import Layout from '../Component/Layout'
-
-function tempData(id, title, date){
-	return { id, title, date };
-}
-
-const rows = [
-	tempData('1', 'hello', '2021-01-31'),
-	tempData('2', 'Beautiful Days', '2021-02-01'),
-	tempData('3', 'One Hundred is so funny', '2021-02-02')
-];
+import axios from 'axios'
+import {Link} from "react-router-dom"
 
 function ListPage() {
+	const [Post, setPost] = useState([]);
+
+	useEffect(() => {
+		axios.get('/api/post')
+		.then(response =>{ 
+			setPost(response.data.post)
+		})
+	}, [])
+	
+	const postCard = Post.map((post,index)=>{
+		return(
+			<ListItem
+				button component={Link} to={`/post/${post.id}`}
+				key={index}
+				alignItems="center"
+			>
+				<ListItemText primary={post.id} />
+				<ListItemText primary={post.title} />
+				<ListItemText primary= {post.nickname} />
+			</ListItem>
+		)
+	})
 	return (
 		<Layout>
-			<TableContainer component={Paper}>
-				<Table aria-label="post list">
-					<TableHead>
-						<TableRow>
-							<TableCell>Id</TableCell>
-							<TableCell>title</TableCell>
-							<TableCell>Date</TableCell>
-						</TableRow>
-					</TableHead>
-					<TableBody>
-						{rows.map((row)=>(
-							<TableRow key={row.id}>
-								<TableCell component="th" scope="row">
-									{row.id}
-								</TableCell>
-								<TableCell>{row.title}</TableCell>
-								<TableCell>{row.date}</TableCell>
-							</TableRow>
-						))}
-					</TableBody>
-				</Table>
-			</TableContainer>
+			<List>
+				<ListItem alignItems="center">
+					<ListItemText primary="id" />
+					<ListItemText primary= "title" />
+					<ListItemText primary= "nickname" />
+				</ListItem>
+				<Divider />
+				{postCard}
+			</List>
 		</Layout>
 	)
 }
