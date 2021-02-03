@@ -4,11 +4,15 @@ import Nav from './Nav'
 
 function Layout({ children }) {
 	return (
+		<>
 		<Container component="main" maxWidth="sm">
 			<Nav />
 			<br />
-			{children}
 		</Container>
+		<Container maxWidth="sm">
+		{children}
+		</Container>
+		</>
 	)
 }
 

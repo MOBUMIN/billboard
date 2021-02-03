@@ -1,12 +1,20 @@
 import React from 'react'
 import { Grid, Container, Typography, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme) => ({
+	title: {
+	  padding: '5% 0 0 0 '
+	},
+  }));
 
 function Nav() {
+	const classes = useStyles();
 	return (
 		<Grid container spacing={3}>
 			<Grid item xs={12}>
-				<Typography component="h1" variant="h5" align="center">
+				<Typography className={classes.title} component="h1" variant="h5" align="center">
 					BillBoard
 				</Typography>
 			</Grid>
@@ -16,7 +24,7 @@ function Nav() {
 						component={ Link } to="/list"
 						variant="contained"
 						color="secondary"
-						size="small"
+						size="medium"
 					>
 						List
 					</Button>
@@ -26,7 +34,7 @@ function Nav() {
 						component={ Link } to="/post"
 						variant="contained"
 						color="primary"
-						size="small"
+						size="medium"
 					>
 						Post
 					</Button>

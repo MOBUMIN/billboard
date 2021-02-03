@@ -7,10 +7,10 @@ function App() {
 	<div>
 		<Router>
 			<Switch>
-			<Route exact path="/" component={LandingPage} />
-			<Route exact path="/post" component={PostPage} />
-			<Route exact path="/list" component={ListPage} />
-			{/* <Route exact path="/edit" component={} /> */}
+				<Route exact path="/" component={LandingPage} />
+				<Route exact path="/post" component={PostPage} />
+				<Route exact path="/list" component={ListPage} />
+				{/* <Route exact path="/edit" component={} /> */}
 			</Switch>
 		</Router>
 	</div>

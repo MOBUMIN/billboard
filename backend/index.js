@@ -16,7 +16,7 @@ app.listen(port, () => console.log(`app listening on port ${port}!`))
 app.get('/api/hello', (req, res) => res.send('hello'));
 
 app.get('/api/post', (req,res) => {
-	// POST 내용 보기 
+	// POST 내용 보기 전체 
 	return res.status(200).json(data);
 })
 
@@ -37,7 +37,7 @@ app.post('/api/post', (req,res) => {
 	data.post[i] = { "id" : i+1, "title":inputData.title, "nickname":inputData.nickname, "content":inputData.content };
 	fs.writeFileSync(dbFile, JSON.stringify(data));
 	console.log(i+1+" 항목 추가")
-	return res.status(200).json({success:true})
+	return res.status(200).json({postSuccess:true})
 })
 
 app.patch('/api/post/:id', (req,res) => {
@@ -46,7 +46,7 @@ app.patch('/api/post/:id', (req,res) => {
 
 app.delete('/api/post/:id', (req,res) => {
 	// DELETE
-	delete data.post[params.id-1];
+	delete data.post[req.params.id-1];
 	data.post = data.post.filter( (item) => item!=null );
 	fs.writeFileSync(dbFile, JSON.stringify(data));
 	return res.status(200).json({success:true});
