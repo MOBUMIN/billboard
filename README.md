@@ -1,6 +1,6 @@
 본 프로젝트에 들어가기에 앞서 리액트에 적응하기 위해 간단한 게시판을 구현함.
 
-![image](https://user-images.githubusercontent.com/57705512/107053786-96955080-6812-11eb-9ad1-a579c0b37cee.png)
+![소개gif](https://user-images.githubusercontent.com/57705512/107053871-b6c50f80-6812-11eb-9e94-45d44cf3eb5e.gif)
 
 # 구조
 
