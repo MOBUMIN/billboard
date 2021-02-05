@@ -36,9 +36,10 @@ function PostPage(props) {
 		}
 		axios.post('api/post', body)
 		.then(response => {
-			alert('포스팅 성공')
-			console.log('포스팅 성공')
-			props.history.push('/list')
+			if(response.data.postSuccess){
+				alert('포스팅 성공')
+				props.history.push('/list')
+			} else alert('포스팅 실패 사유 : '+response.data.message)
 		})
 	}
 	return (

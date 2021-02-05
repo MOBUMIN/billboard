@@ -3,6 +3,7 @@ import Layout from '../Component/Layout';
 import { Grid, Button, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
+import {Link} from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
 	container: {
@@ -60,7 +61,12 @@ function PostDetailPage(props) {
 					</Grid>
 					<Grid container spacing={2}>
 						<Grid item>
-							<Button variant="contained" color="primary">EDIT</Button>
+							<Button
+								variant="contained"
+								color="primary"
+								component={Link} to={`/edit/${postId}`}>
+								EDIT
+							</Button>
 						</Grid>
 						<Grid item>
 							<Button variant="contained" color="secondary" onClick={onDeleteHandler}>DELETE</Button>

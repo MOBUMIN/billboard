@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Grid, TextField, Button } from '@material-ui/core';
 import Layout from '../Component/Layout'
 import { makeStyles } from '@material-ui/core/styles';
@@ -10,12 +10,25 @@ const useStyles = makeStyles((theme) => ({
 	},
   }));
 
-function PostPage(props) {
-	const classes = useStyles();
+function EditPage(props) {
+	const postId = props.match.params.postId;
+	const variable = { postId: postId };
+	const [PostDetail, setPostDetail] = useState("");
+	const [Title, setTitle] = useState("");
+	const [Nickname, setNickname] = useState("");
+	const [Content, setContent] = useState("");
 
-	const [Title, setTitle] = useState("")
-	const [Nickname, setNickname] = useState("")
-	const [Content, setContent] = useState("")
+	useEffect(() => {
+		axios.post('/api/postDetail', variable)
+		.then(response=>{
+			setPostDetail(response.data)
+			setTitle(response.data.title)
+			setNickname(response.data.nickname)
+			setContent(response.data.content)
+		})
+	}, [])
+
+	const classes = useStyles();
 
 	const onTitleHandler=(event)=>{
 		setTitle(event.currentTarget.value)
@@ -30,14 +43,16 @@ function PostPage(props) {
 	const onsubmitHandler=(event)=>{
 		event.preventDefault();
 		let body = {
+			id: postId,
 			title: Title,
 			nickname: Nickname,
 			content: Content
 		}
-		axios.post('api/post', body)
+		axios.patch('/api/post', body)
 		.then(response => {
-			alert('포스팅 성공')
-			console.log('포스팅 성공')
+			if(response.data.editSuccess){
+				alert('포스트 수정 성공')
+			} else alert('포스트 수정 실패 이유 : '+response.data.message)
 			props.history.push('/list')
 		})
 	}
@@ -52,7 +67,6 @@ function PostPage(props) {
 						<form noValidate>
 							<TextField 
 								fullWidth
-								placeholder="제목을 입력하세요."
 								id="title"
 								label="Title"
 								value={Title}
@@ -65,7 +79,6 @@ function PostPage(props) {
 					<Grid item xs>
 						<form noValidate>
 							<TextField
-								placeholder="닉네임을 입력하세요."
 								id="nickname"
 								label="Nickname"
 								value={Nickname}
@@ -99,4 +112,4 @@ function PostPage(props) {
 	)
 }
 
-export default PostPage
+export default EditPage;

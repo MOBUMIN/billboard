@@ -31,7 +31,7 @@ app.post('/api/post', (req,res) => {
 	const inputData = req.body;
 	// invalid input
 	if(!inputData["title"] || !inputData["nickname"] || !inputData["content"] ){
-		return res.json({ success:false })
+		return res.json({ postSuccess:false, message:"내용 부족" })
 	}
 	var i = Object.keys(data.post).length;
 	data.post[i] = { "id" : i+1, "title":inputData.title, "nickname":inputData.nickname, "content":inputData.content };
@@ -40,8 +40,16 @@ app.post('/api/post', (req,res) => {
 	return res.status(200).json({postSuccess:true})
 })
 
-app.patch('/api/post/:id', (req,res) => {
+app.patch('/api/post', (req,res) => {
 	// EDIT
+	var inputData = req.body;
+	if(!inputData["title"] || !inputData["nickname"] || !inputData["content"] ){
+		return res.json({ editSuccess:false, message: "내용 부족" })
+	}
+	data.post[inputData["id"]-1] = inputData;
+	fs.writeFileSync(dbFile, JSON.stringify(data));
+	console.log(inputData["id"]+"변경")
+	return res.status(200).json({editSuccess:true})
 })
 
 app.delete('/api/post', (req,res) => {

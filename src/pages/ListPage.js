@@ -17,11 +17,11 @@ function ListPage() {
 	const postCard = Post.map((post,index)=>{
 		return(
 			<ListItem
-				button component={Link} to={`/post/${post.id}`}
+				button component={Link} to={`/post/${index+1}`}
 				key={index}
 				alignItems="center"
 			>
-				<ListItemText primary={post.id} />
+				<ListItemText primary={index+1} />
 				<ListItemText primary={post.title} />
 				<ListItemText primary= {post.nickname} />
 			</ListItem>
