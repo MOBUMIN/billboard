@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { ListPage, PostPage, LandingPage } from "./pages"
+import { ListPage, PostPage, LandingPage, PostDetailPage, EditPage } from "./pages"
 
 function App() {
   return (
@@ -10,7 +10,8 @@ function App() {
 				<Route exact path="/" component={LandingPage} />
 				<Route exact path="/post" component={PostPage} />
 				<Route exact path="/list" component={ListPage} />
-				{/* <Route exact path="/edit" component={} /> */}
+				<Route exact path="/post/:postId" component={PostDetailPage} />
+				<Route exact path="/edit/:postId" component={EditPage} />
 			</Switch>
 		</Router>
 	</div>

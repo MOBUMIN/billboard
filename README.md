@@ -18,8 +18,13 @@ ListPage.js '/list', 포스트 목록을 볼 수 있는 페이지
 
 PostPage.js '/post', 포스트를 작성할 수 있는 페이지
 
+
 backend
 
 간단하게 postData.json파일을 만들어뒀음.
 
 해당 파일로 post, get, delete 등 함.
+
+## 실행 방법
+메인 폴더에서 npm start, backend 폴더에서 npm start.
+

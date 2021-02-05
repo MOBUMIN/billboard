@@ -20,9 +20,9 @@ app.get('/api/post', (req,res) => {
 	return res.status(200).json(data);
 })
 
-app.get('/api/post/:id', (req,res) => {
+app.post('/api/postDetail', (req,res) => {
 	// POST 내용 보기 
-	return res.status(200).json(data.post[req.params.id-1]);
+	return res.status(200).json(data.post[req.body.postId-1]);
 })
 
 app.post('/api/post', (req,res) => {
@@ -44,9 +44,10 @@ app.patch('/api/post/:id', (req,res) => {
 	// EDIT
 })
 
-app.delete('/api/post/:id', (req,res) => {
+app.delete('/api/post', (req,res) => {
 	// DELETE
-	delete data.post[req.params.id-1];
+	console.log(req.body);
+	delete data.post[req.body.postId-1];
 	data.post = data.post.filter( (item) => item!=null );
 	fs.writeFileSync(dbFile, JSON.stringify(data));
 	return res.status(200).json({success:true});

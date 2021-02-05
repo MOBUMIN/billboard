@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, Container, Typography, Button } from '@material-ui/core';
+import { Grid, Typography, Button } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -22,7 +22,7 @@ function Nav() {
 				<Grid item>
 					<Button
 						component={ Link } to="/list"
-						variant="contained"
+						variant="outlined"
 						color="secondary"
 						size="medium"
 					>
@@ -32,7 +32,7 @@ function Nav() {
 				<Grid item>
 					<Button
 						component={ Link } to="/post"
-						variant="contained"
+						variant="outlined"
 						color="primary"
 						size="medium"
 					>
