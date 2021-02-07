@@ -1,7 +1,5 @@
 본 프로젝트에 들어가기에 앞서 리액트에 적응하기 위해 간단한 게시판을 구현함.
 
-![소개gif](https://user-images.githubusercontent.com/57705512/107053871-b6c50f80-6812-11eb-9e94-45d44cf3eb5e.gif)
-
 # 구조
 
 src>Component
@@ -33,4 +31,8 @@ backend
 
 ## 실행 방법
 메인 폴더에서 npm start, backend 폴더에서 npm start.
+
+## 실행 화면
+
+![소개gif](https://user-images.githubusercontent.com/57705512/107053871-b6c50f80-6812-11eb-9e94-45d44cf3eb5e.gif)
 
