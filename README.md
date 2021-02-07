@@ -20,6 +20,10 @@ ListPage.js '/list', 포스트 목록을 볼 수 있는 페이지
 
 PostPage.js '/post', 포스트를 작성할 수 있는 페이지
 
+PostDetailPage.js '/post/:id', 포스트를 클릭했을 때 뜨는 페이지 ( => 수정, 삭제 가능 )
+
+EditPage.js '/edit/:id', 수정을 눌렀을 때 뜨는 페이지
+
 
 backend
 
