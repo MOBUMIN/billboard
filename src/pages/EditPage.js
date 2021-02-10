@@ -10,10 +10,9 @@ const useStyles = makeStyles((theme) => ({
 	},
   }));
 
-function EditPage(props) {
+function EditPage(props) { // Edit + Post 해서 하나의 페이지로 구성하는 방식 ? = > 조건부 렌더링 검색
 	const postId = props.match.params.postId;
 	const variable = { postId: postId };
-	const [PostDetail, setPostDetail] = useState("");
 	const [Title, setTitle] = useState("");
 	const [Nickname, setNickname] = useState("");
 	const [Content, setContent] = useState("");
@@ -21,7 +20,6 @@ function EditPage(props) {
 	useEffect(() => {
 		axios.post('/api/postDetail', variable)
 		.then(response=>{
-			setPostDetail(response.data)
 			setTitle(response.data.title)
 			setNickname(response.data.nickname)
 			setContent(response.data.content)

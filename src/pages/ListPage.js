@@ -13,6 +13,8 @@ function ListPage() {
 			setPost(response.data.post)
 		})
 	}, [])
+	// [] 안에 없으면 그냥 한 번만 받아옴 = > useEffect 참고
+	// 두번째 인자가 아예 없으면 그냥 계속 실행 ?
 	
 	const postCard = Post.map((post,index)=>{
 		return(

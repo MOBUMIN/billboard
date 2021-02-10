@@ -19,7 +19,8 @@ function Nav() {
 				</Typography>
 			</Grid>
 			<Grid container justify="flex-end" spacing={3}>
-				<Grid item>
+				<Grid item> 
+				{/* 링크안에 버튼 넣는 방식도 잉씀 */}
 					<Button
 						component={ Link } to="/list"
 						variant="outlined"

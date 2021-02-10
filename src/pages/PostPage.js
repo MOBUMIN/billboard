@@ -41,8 +41,12 @@ function PostPage(props) {
 				props.history.push('/list')
 			} else alert('포스팅 실패 사유 : '+response.data.message)
 		})
+		// .catch(e => {
+		// 	//error 출력
+		// })
 	}
 	return (
+		// React hook form 사용하면 더 편하게 할 수 있음!
 		<Layout>
 			<Grid container className={classes.container} spacing={3}>
 				<Grid 

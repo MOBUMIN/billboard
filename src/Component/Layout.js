@@ -7,7 +7,7 @@ function Layout({ children }) {
 		<>
 			<Container component="main" maxWidth="sm">
 				<Nav />
-				<br />
+				{/* <br /> 코드 안에 br을 잘 안 씀  */}
 			</Container>
 			<Container maxWidth="sm">
 				{children}

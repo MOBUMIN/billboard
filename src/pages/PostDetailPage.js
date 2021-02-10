@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Layout from '../Component/Layout';
+import Comment from '../Component/Comment';
 import { Grid, Button, Paper } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import axios from 'axios';
@@ -74,6 +75,7 @@ function PostDetailPage(props) {
 					</Grid>
 				</Grid>
 			</Grid>
+			<Comment />
 		</Layout>
 	)
 }
