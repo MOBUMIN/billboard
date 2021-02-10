@@ -18,6 +18,10 @@ ListPage.js '/list', 포스트 목록을 볼 수 있는 페이지
 
 PostPage.js '/post', 포스트를 작성할 수 있는 페이지
 
+PostDetailPage.js '/post/:id', 포스트를 클릭했을 때 뜨는 페이지 ( => 수정, 삭제 가능 )
+
+EditPage.js '/edit/:id', 수정을 눌렀을 때 뜨는 페이지
+
 
 backend
 
@@ -27,4 +31,8 @@ backend
 
 ## 실행 방법
 메인 폴더에서 npm start, backend 폴더에서 npm start.
+
+## 실행 화면
+
+![소개gif](https://user-images.githubusercontent.com/57705512/107053871-b6c50f80-6812-11eb-9e94-45d44cf3eb5e.gif)
 
